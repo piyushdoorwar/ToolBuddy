@@ -1,0 +1,27 @@
+.json-formatter {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .actions {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .editors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+
+    .editor {
+      h3 {
+        margin-bottom: 10px;
+        color: #666;
+      }
+    }
+  }
+}

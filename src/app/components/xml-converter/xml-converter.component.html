@@ -1,0 +1,23 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>XML Converter</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="controls">
+        <button mat-raised-button color="primary" (click)="convertToJson()">XML to JSON</button>
+        <button mat-raised-button color="primary" (click)="convertToXml()">JSON to XML</button>
+      </div>
+      <div class="editor-container">
+        <div class="editor">
+          <h3>Input</h3>
+          <textarea [(ngModel)]="input" rows="10" placeholder="Enter XML or JSON here..."></textarea>
+        </div>
+        <div class="editor">
+          <h3>Output</h3>
+          <textarea [(ngModel)]="output" rows="10" readonly></textarea>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

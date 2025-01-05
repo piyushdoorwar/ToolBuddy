@@ -1,0 +1,32 @@
+<div class="json-formatter">
+  <h2>JSON Formatter & Validator</h2>
+  
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="formatJson()" [disabled]="!isValidJson">
+      Format JSON
+    </button>
+    <button mat-raised-button color="accent" (click)="generateSchema()" [disabled]="!isValidJson">
+      Generate Schema
+    </button>
+  </div>
+
+  <div class="editors">
+    <div class="editor">
+      <h3>JSON Input</h3>
+      <app-monaco-editor
+        [code]="jsonInput"
+        (codeChange)="onJsonChange($event)"
+        language="json">
+      </app-monaco-editor>
+    </div>
+
+    <div class="editor" *ngIf="jsonSchema">
+      <h3>JSON Schema</h3>
+      <app-monaco-editor
+        [code]="jsonSchema"
+        [readOnly]="true"
+        language="json">
+      </app-monaco-editor>
+    </div>
+  </div>
+</div>

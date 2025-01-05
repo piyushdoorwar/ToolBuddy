@@ -1,0 +1,47 @@
+<div class="regex-tester">
+  <h2>Regex Tester</h2>
+
+  <div class="pattern-section">
+    <mat-form-field class="pattern-input">
+      <mat-label>Regular Expression</mat-label>
+      <input matInput [(ngModel)]="pattern" (ngModelChange)="test()" [class.invalid]="!isValid">
+      <mat-error *ngIf="!isValid">Invalid regular expression</mat-error>
+    </mat-form-field>
+
+    <div class="flags">
+      <mat-checkbox [(ngModel)]="global" (change)="updateFlags()">Global (g)</mat-checkbox>
+      <mat-checkbox [(ngModel)]="caseInsensitive" (change)="updateFlags()">Case Insensitive (i)</mat-checkbox>
+      <mat-checkbox [(ngModel)]="multiline" (change)="updateFlags()">Multiline (m)</mat-checkbox>
+      <mat-checkbox [(ngModel)]="dotAll" (change)="updateFlags()">Dot All (s)</mat-checkbox>
+      <mat-checkbox [(ngModel)]="unicode" (change)="updateFlags()">Unicode (u)</mat-checkbox>
+      <mat-checkbox [(ngModel)]="sticky" (change)="updateFlags()">Sticky (y)</mat-checkbox>
+    </div>
+  </div>
+
+  <div class="test-string">
+    <h3>Test String</h3>
+    <app-monaco-editor
+      [(code)]="testString"
+      (codeChange)="test()"
+      language="plaintext">
+    </app-monaco-editor>
+  </div>
+
+  <div class="matches" *ngIf="matches.length > 0">
+    <h3>Matches ({{matches.length}})</h3>
+    <div class="match-list">
+      <div class="match-item" *ngFor="let match of matches; trackBy: trackMatchIndex">
+        <div class="match-text">
+          <strong>Match:</strong> {{match.text}}
+        </div>
+        <div class="match-index">
+          <strong>Index:</strong> {{match.index}}
+        </div>
+        <div class="match-groups" *ngIf="match.groups.length > 0">
+          <strong>Groups:</strong>
+          <span class="group" *ngFor="let group of match.groups">{{group}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container" fxLayout="column" fxLayoutGap="20px">
+  <div class="welcome-section" fxLayout="column" fxLayoutAlign="center center">
+    <h1>Welcome to ToolBuddy</h1>
+    <p>Your one-stop solution for developer and finance tools</p>
+  </div>
+
+  <div class="tools-section">
+    <h2>Developer Tools</h2>
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+      <mat-card *ngFor="let tool of devTools" class="tool-card" fxFlex="calc(33.33% - 20px)" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100%">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>{{tool.icon}}</mat-icon>
+          <mat-card-title>{{tool.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{tool.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" [routerLink]="tool.route">
+            Open Tool
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="tools-section">
+    <h2>Finance Tools</h2>
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+      <mat-card *ngFor="let tool of financeTools" class="tool-card" fxFlex="calc(33.33% - 20px)" fxFlex.lt-md="calc(50% - 20px)" fxFlex.lt-sm="100%">
+        <mat-card-header>
+          <mat-icon mat-card-avatar>{{tool.icon}}</mat-icon>
+          <mat-card-title>{{tool.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{tool.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" [routerLink]="tool.route">
+            Open Tool
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

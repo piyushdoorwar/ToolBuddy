@@ -1,0 +1,30 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>SQL Formatter</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="controls">
+        <mat-form-field>
+          <mat-label>SQL Dialect</mat-label>
+          <mat-select [(ngModel)]="language">
+            <mat-option *ngFor="let lang of languages; trackBy: trackByLang" [value]="lang.value">
+              {{lang.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="formatSQL()">Format SQL</button>
+      </div>
+      <div class="editor-container">
+        <div class="editor">
+          <h3>Input SQL</h3>
+          <textarea [(ngModel)]="input" rows="10" placeholder="Enter SQL here..."></textarea>
+        </div>
+        <div class="editor">
+          <h3>Formatted SQL</h3>
+          <textarea [(ngModel)]="output" rows="10" readonly></textarea>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

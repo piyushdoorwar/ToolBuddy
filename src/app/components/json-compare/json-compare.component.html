@@ -1,0 +1,39 @@
+<div class="json-compare">
+  <h2>JSON Compare</h2>
+
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="compareJson()">
+      Compare JSON
+    </button>
+    <mat-slide-toggle [(ngModel)]="highlightDiff">
+      Highlight Differences
+    </mat-slide-toggle>
+  </div>
+
+  <div class="editors">
+    <div class="editor">
+      <h3>First JSON</h3>
+      <app-monaco-editor
+        [(code)]="jsonA"
+        language="json">
+      </app-monaco-editor>
+    </div>
+
+    <div class="editor">
+      <h3>Second JSON</h3>
+      <app-monaco-editor
+        [(code)]="jsonB"
+        language="json">
+      </app-monaco-editor>
+    </div>
+
+    <div class="editor" *ngIf="comparisonResult">
+      <h3>Differences</h3>
+      <app-monaco-editor
+        [code]="comparisonResult"
+        [readOnly]="true"
+        language="json">
+      </app-monaco-editor>
+    </div>
+  </div>
+</div>
